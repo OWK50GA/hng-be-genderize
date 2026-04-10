@@ -46,7 +46,7 @@ router.get("/classify", async (req: Request, res: Response) => {
         const { count: sampleSize, name, probability, gender }: GenderizeAPIResponse = await genderizeRes.json();
 
         if (gender === "null" || sampleSize === 0) {
-            return res.status(400).json({
+            return res.json({
                 status: "error",
                 message: "No prediction available for the provided name"
             })
